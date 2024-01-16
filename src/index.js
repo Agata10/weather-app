@@ -5,3 +5,5 @@ async function getDataWeather() {
   const response = weather.json();
   console.log(response);
 }
+
+getDataWeather();

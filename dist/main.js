@@ -1,1 +1,1 @@
-console.log("hello");
+!async function(){const o=(await fetch("http://api.weatherapi.com/v1/current.json?key=4a0d8c7e5941457fae103231230812&q=London&aqi=no")).json();console.log(o),console.log("4a0d8c7e5941457fae103231230812")}();
