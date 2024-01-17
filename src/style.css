@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap');
+
+:root {
+    --black-backgr: rgba(48, 45, 45, 0.50);
+    --font-fam: "Josefin Sans", Arial;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.content {
+    width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    font-family: var(--font-fam);
+}
+
+.wrapper {
+    background-image: url('./images/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+#search {
+    width: 320px;
+    height: 50px;
+}
+
+#submit-btn {
+    width: 52px;
+    height: 50px;
+}
+
+.forecast-today {
+    width: 360px;
+    height: 270px;
+    margin: 20px 20px 0px 20px;
+    display: grid;
+    grid-template-columns: 3fr 1.2fr;
+}
+
+.col {
+    margin: 45px 15px 0px 15px;
+    color: white;
+}
+
+.col-2 {
+    padding-top: 30px;
+    align-self: center;
+    justify-self: center;
+    padding-right: 15px;
+}
+
+.name {
+    font-size: 26px;
+    font-weight: 600;
+    width: 230px;
+    padding-bottom: 20px;
+    margin: 0px;
+}
+
+.temp {
+    font-size: 32px;
+    font-weight: 300;
+    margin: 0;
+    padding-bottom: 80px;
+}
+
+.humidity,
+.wind {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0px;
+}
+
+.wind {
+    margin-top: 3px;
+    padding-bottom: 26px;
+}
+
+.forecast-week {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin: 0px 20px 30px 20px;
+}
+
+.forecast-day {
+    width: 100px;
+    height: 150px;
+}
+
+.forecast-today,
+.forecast-day {
+    background-color: var(--black-backgr);
+}
