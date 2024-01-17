@@ -5,19 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Agata Deter" />
     <title>Weather app</title>
+    <link rel="stylesheet" href="../src/style.css" />
   </head>
   <body>
-    <div class="content">
-      <form action="POST">
-        <label for="search">
-          <input
-            type="search"
-            id="search"
-            placeholder="Enter name of the city.."
-          />
-        </label>
-        <button type="button" id="submit-btn">Submit</button>
-      </form>
+    <div class="flex-container">
+      <div class="content">
+        <form action="POST">
+          <label for="search">
+            <input
+              type="search"
+              id="search"
+              placeholder="Enter name of the city..."
+            />
+          </label>
+          <button type="button" id="submit-btn">Submit</button>
+        </form>
+        <div class="wrapper">
+          <section class="forecast-today">
+            <div class="col">
+              <h3 class="name">London, England</h3>
+              <h1 class="temp">60F | 30C</h1>
+              <p class="humidity">Humidity:</p>
+              <p class="wind">Wind:</p>
+            </div>
+            <div class="col-2">
+              <img src="" alt="icon" />
+              <p class="condition">Light Rain</p>
+            </div>
+          </section>
+          <section class="forecast-week">
+            <div class="forecast-day">cos</div>
+            <div class="forecast-day"></div>
+            <div class="forecast-day"></div>
+          </section>
+        </div>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
