@@ -9,10 +9,9 @@ async function getTodayWeather(input) {
       document.querySelector('.error').textContent =
         'No matching location, please check spelling';
       document.querySelector('.error').style.display = 'block';
+      throw new Error('incorrect name');
     }
     const weather = await response.json();
-    console.log(weather);
-    console.log(response.status);
     return weather;
   } catch (err) {
     console.log(err);
@@ -33,25 +32,24 @@ function setTodayWeather(response) {
 
   const threeDaysWeather = [
     {
-      date: response.forecast.forecastday[0].date,
+      date: response.forecast.forecastday[0].date.slice(5).replace('-', '/'),
       min_temp: response.forecast.forecastday[0].day.mintemp_f,
       max_temp: response.forecast.forecastday[0].day.maxtemp_f,
       condition_icon: response.forecast.forecastday[0].day.condition.icon,
     },
     {
-      date: response.forecast.forecastday[1].date,
+      date: response.forecast.forecastday[1].date.slice(5).replace('-', '/'),
       min_temp: response.forecast.forecastday[1].day.mintemp_f,
       max_temp: response.forecast.forecastday[1].day.maxtemp_f,
       condition_icon: response.forecast.forecastday[1].day.condition.icon,
     },
     {
-      date: response.forecast.forecastday[2].date,
+      date: response.forecast.forecastday[2].date.slice(5).replace('-', '/'),
       min_temp: response.forecast.forecastday[2].day.mintemp_f,
       max_temp: response.forecast.forecastday[2].day.maxtemp_f,
       condition_icon: response.forecast.forecastday[2].day.condition.icon,
     },
   ];
-  console.log(locationWeather);
   return [locationWeather, threeDaysWeather];
 }
 
@@ -76,7 +74,6 @@ function appendTodayForecast(data) {
 }
 
 function appendWeekForecast(data) {
-  // console.log(data[1][0].date);
   let i = 1;
   data[1].forEach((elem) => {
     document.querySelector(`.date${i}`).textContent = elem.date;
@@ -89,6 +86,23 @@ function appendWeekForecast(data) {
   });
 }
 
+function submit(input, error) {
+  if (input.value === '') {
+    error.textContent = 'Please enter the city.';
+    error.style.display = 'block';
+    return;
+  } else {
+    error.style.display = 'none';
+    getTodayWeather(input.value)
+      .then((response) => setTodayWeather(response))
+      .then((data) => {
+        appendTodayForecast(data);
+        appendWeekForecast(data);
+      })
+      .catch((err) => console.log(err));
+  }
+}
+
 function handleUI() {
   let input = document.getElementById('search');
   const btn = document.getElementById('submit-btn');
@@ -96,22 +110,15 @@ function handleUI() {
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    if (input.value === '') {
-      error.textContent = 'Please enter the city.';
-      error.style.display = 'block';
-      return;
-    } else {
-      error.style.display = 'none';
-      getTodayWeather(input.value)
-        .then((response) => setTodayWeather(response))
-        .then((data) => {
-          appendTodayForecast(data);
-          appendWeekForecast(data);
-        });
+    submit(input, error);
+  });
+
+  input.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      btn.click();
     }
   });
-  //   const inputval = prompt("Enter name:");
-  //   getTodayWeather(inputval).then((response) => setTodayWeather(response));
 }
 
 handleUI();
