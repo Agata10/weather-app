@@ -37,7 +37,7 @@ body {
     height: 500px;
     display: flex;
     flex-direction: column;
-    background-image: url('./images/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
+    background-image: url('images/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
