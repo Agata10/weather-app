@@ -6,7 +6,9 @@ async function getTodayWeather(input) {
       `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${input}&days=3&aqi=no&alerts=no`
     );
     if (response.status === 400) {
-      alert('No matching location, please check spelling');
+      document.querySelector('.error').textContent =
+        'No matching location, please check spelling';
+      document.querySelector('.error').style.display = 'block';
     }
     const weather = await response.json();
     console.log(weather);
@@ -88,17 +90,25 @@ function appendWeekForecast(data) {
 }
 
 function handleUI() {
-  const input = document.getElementById('search');
+  let input = document.getElementById('search');
   const btn = document.getElementById('submit-btn');
+  const error = document.querySelector('.error');
 
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    getTodayWeather(input.value)
-      .then((response) => setTodayWeather(response))
-      .then((data) => {
-        appendTodayForecast(data);
-        appendWeekForecast(data);
-      });
+    if (input.value === '') {
+      error.textContent = 'Please enter the city.';
+      error.style.display = 'block';
+      return;
+    } else {
+      error.style.display = 'none';
+      getTodayWeather(input.value)
+        .then((response) => setTodayWeather(response))
+        .then((data) => {
+          appendTodayForecast(data);
+          appendWeekForecast(data);
+        });
+    }
   });
   //   const inputval = prompt("Enter name:");
   //   getTodayWeather(inputval).then((response) => setTodayWeather(response));
