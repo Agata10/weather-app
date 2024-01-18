@@ -1,3 +1,5 @@
+const { constrainedMemory } = require("process");
+
 async function getTodayWeather(input) {
   try {
     const response = await fetch(
@@ -47,7 +49,32 @@ function setTodayWeather(response) {
       condition_icon: response.forecast.forecastday[2].day.condition.icon,
     },
   ];
-  console.log(threeDaysWeather);
+  console.log(locationWeather);
+  return [locationWeather, threeDaysWeather];
+}
+
+function appendTodayForecast(data) {
+  const name = document.querySelector(".name");
+  const country = document.createElement("span");
+  country.classList.add("country");
+  const temp = document.querySelector(".temp");
+  const humidity = document.querySelector(".humidity");
+  const wind = document.querySelector(".wind");
+  const icon = document.querySelector(".icon");
+  const condition = document.querySelector(".condition");
+  console.log(country);
+  name.textContent = `${data[0].name}, `;
+  country.textContent = `${data[0].country}`;
+  name.appendChild(country);
+  temp.textContent = `${data[0].temp_f}F | ${data[0].temp_c}°C`;
+  humidity.textContent = `Humidity: ${data[0].humidity}%`;
+  wind.textContent = `Wind: ${data[0].wind_mph}mph`;
+  icon.setAttribute("src", `https:` + data[0].condition_icon);
+  condition.textContent = data[0].condition;
+}
+
+function appendWeekForecast(data) {
+  const 
 }
 
 function handleUI() {
@@ -58,7 +85,7 @@ function handleUI() {
     e.preventDefault();
     getTodayWeather(input.value)
       .then((response) => setTodayWeather(response))
-      .catch((err) => console.log(err));
+      .then((data) => appendTodayForecast(data));
   });
   //   const inputval = prompt("Enter name:");
   //   getTodayWeather(inputval).then((response) => setTodayWeather(response));
