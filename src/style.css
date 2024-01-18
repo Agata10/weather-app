@@ -10,6 +10,8 @@ body {
     padding: 0;
     box-sizing: border-box;
     min-height: 100vh;
+    background-color: #C8C5C5;
+    color: white;
 }
 
 .flex-container {
@@ -31,14 +33,15 @@ body {
 }
 
 .wrapper {
-    background-image: url('./images/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     width: 400px;
     height: 500px;
     display: flex;
     flex-direction: column;
+    background-image: url('./images/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: grayscale(50%);
 }
 
 form {
@@ -143,11 +146,52 @@ form {
 }
 
 .forecast-day {
+    color: white;
     width: 100px;
     height: 150px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(48, 45, 45, 0.75);
+    ;
 }
 
-.forecast-today,
-.forecast-day {
+.date1,
+.date2,
+.date3 {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0;
+
+}
+
+.icon1,
+.icon2,
+.icon3 {
+    width: 45px;
+    height: 45px;
+    margin: 0;
+}
+
+.tempH1,
+.tempH2,
+.tempH3 {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.tempL1,
+.tempL2,
+.tempL3 {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0;
+}
+
+.forecast-today {
     background-color: var(--black-backgr);
 }

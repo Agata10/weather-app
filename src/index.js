@@ -74,7 +74,17 @@ function appendTodayForecast(data) {
 }
 
 function appendWeekForecast(data) {
-  const 
+  // console.log(data[1][0].date);
+  let i = 1;
+  data[1].forEach((elem) => {
+    document.querySelector(`.date${i}`).textContent = elem.date;
+    document.querySelector(`.tempH${i}`).textContent = `${elem.max_temp}F`;
+    document
+      .querySelector(`.icon${i}`)
+      .setAttribute("src", `https:` + elem.condition_icon);
+    document.querySelector(`.tempL${i}`).textContent = `${elem.min_temp}F`;
+    i++;
+  });
 }
 
 function handleUI() {
@@ -85,7 +95,10 @@ function handleUI() {
     e.preventDefault();
     getTodayWeather(input.value)
       .then((response) => setTodayWeather(response))
-      .then((data) => appendTodayForecast(data));
+      .then((data) => {
+        appendTodayForecast(data);
+        appendWeekForecast(data);
+      });
   });
   //   const inputval = prompt("Enter name:");
   //   getTodayWeather(inputval).then((response) => setTodayWeather(response));
