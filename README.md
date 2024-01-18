@@ -21,6 +21,8 @@ App is build using JavaScript, HTML, CSS. User can look up forecast up to 3 days
 If the name is incorrect there will be an error displayed, the same will happen if the input is empty.
 User can either press the button or press enter.
 
+The design created using Figma.
+
 ## Technologies
 
 - `CSS3`
@@ -28,6 +30,7 @@ User can either press the button or press enter.
 - `JavaScript`
 - `Weather API`
 - `Webpack`
+- `Figma`
 
 ## What I learned
 
