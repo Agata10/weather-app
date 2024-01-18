@@ -5,7 +5,7 @@
 - [Mockup](#mockup)
 - [General Info](#general-information)
 - [Technologies](#technologies)
-- [What I learned](#What-I-learned)
+- [What I've learned](#What-I've-learned)
 - [Link to webpage](#link-to-webpage)
 - [Setup](#setup)
 - [Video](#video)
@@ -32,7 +32,7 @@ The design created using Figma.
 - `Webpack`
 - `Figma`
 
-## What I learned
+## What I've learned
 
 - I learned how to use async/await and how the Promises works in Javascript.
 - I reminded myslef how to read data from JSON files.
