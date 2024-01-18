@@ -12,7 +12,7 @@
 
 ## Mockup
 
-![Wepage](./images/mockup.jpeg)
+![Wepage](./src/images/mockup.jpeg)
 
 ## General information
 
@@ -50,4 +50,4 @@ User can either press the button or press enter.
 
 ## Video
 
-![Wepage](./images/record.mov)
+![Wepage](./src/images/record.mov)
