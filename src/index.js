@@ -1,4 +1,4 @@
-const { constrainedMemory } = require("process");
+const { constrainedMemory } = require('process');
 
 async function getTodayWeather(input) {
   try {
@@ -6,7 +6,7 @@ async function getTodayWeather(input) {
       `http://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${input}&days=3&aqi=no&alerts=no`
     );
     if (response.status === 400) {
-      alert("No matching location, please check spelling");
+      alert('No matching location, please check spelling');
     }
     const weather = await response.json();
     console.log(weather);
@@ -54,14 +54,14 @@ function setTodayWeather(response) {
 }
 
 function appendTodayForecast(data) {
-  const name = document.querySelector(".name");
-  const country = document.createElement("span");
-  country.classList.add("country");
-  const temp = document.querySelector(".temp");
-  const humidity = document.querySelector(".humidity");
-  const wind = document.querySelector(".wind");
-  const icon = document.querySelector(".icon");
-  const condition = document.querySelector(".condition");
+  const name = document.querySelector('.name');
+  const country = document.createElement('span');
+  country.classList.add('country');
+  const temp = document.querySelector('.temp');
+  const humidity = document.querySelector('.humidity');
+  const wind = document.querySelector('.wind');
+  const icon = document.querySelector('.icon');
+  const condition = document.querySelector('.condition');
   console.log(country);
   name.textContent = `${data[0].name}, `;
   country.textContent = `${data[0].country}`;
@@ -69,7 +69,7 @@ function appendTodayForecast(data) {
   temp.textContent = `${data[0].temp_f}F | ${data[0].temp_c}°C`;
   humidity.textContent = `Humidity: ${data[0].humidity}%`;
   wind.textContent = `Wind: ${data[0].wind_mph}mph`;
-  icon.setAttribute("src", `https:` + data[0].condition_icon);
+  icon.setAttribute('src', `https:` + data[0].condition_icon);
   condition.textContent = data[0].condition;
 }
 
@@ -81,17 +81,17 @@ function appendWeekForecast(data) {
     document.querySelector(`.tempH${i}`).textContent = `${elem.max_temp}F`;
     document
       .querySelector(`.icon${i}`)
-      .setAttribute("src", `https:` + elem.condition_icon);
+      .setAttribute('src', `https:` + elem.condition_icon);
     document.querySelector(`.tempL${i}`).textContent = `${elem.min_temp}F`;
     i++;
   });
 }
 
 function handleUI() {
-  const input = document.getElementById("search");
-  const btn = document.getElementById("submit-btn");
+  const input = document.getElementById('search');
+  const btn = document.getElementById('submit-btn');
 
-  btn.addEventListener("click", (e) => {
+  btn.addEventListener('click', (e) => {
     e.preventDefault();
     getTodayWeather(input.value)
       .then((response) => setTodayWeather(response))
