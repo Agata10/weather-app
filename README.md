@@ -12,7 +12,7 @@
 
 ## Mockup
 
-![Wepage](./src/images/mockup.jpeg)
+![Wepage](./dist/images/mockup.jpeg)
 
 ## General information
 
