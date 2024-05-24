@@ -58,4 +58,4 @@ https://github.com/Agata10/weather-app/assets/124964478/3da8fb06-f979-4046-956e-
 
 ## License
 
-[LICENSE](LICSENSE)
+[LICENSE](LICENSE)
