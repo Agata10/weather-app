@@ -9,6 +9,7 @@
 - [Link to webpage](#link-to-webpage)
 - [Setup](#setup)
 - [Video](#video)
+- [License](#license)
 
 ## Mockup
 
@@ -55,4 +56,6 @@ The design created using Figma.
 
 https://github.com/Agata10/weather-app/assets/124964478/3da8fb06-f979-4046-956e-dc49801fd250
 
+## License
 
+[LICENSE](LICSENSE)
